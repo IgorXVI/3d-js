@@ -9,16 +9,17 @@
 </head>
 
 <body>
-  <canvas class="webgl"></canvas>
-  <nav>
-    <a href="/">Sphere</a>
-    <ul>
-      <li>Explore</li>
-      <li>Create</li>
-    </ul>
-  </nav>
-  <h1 class="title">Spin</h1>
-  <script type="module" src="/main.js"></script>
+  <script id="vertexShader" type="x-shader/x-vertex">
+    void main() {
+      gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+  </script>
+  <script id="fragmentShader" type="x-shader/x-fragment">
+    void main() {
+        gl_FragColor = vec4(0.5, 0.5, 1.0, 1.0);
+    }
+  </script>
+  <script type="module" src="src/main.js"></script>
 </body>
 
 </html>
